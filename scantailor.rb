@@ -49,9 +49,17 @@ class Scantailor < Formula
   # Hides Boost headers from Qt's moc tool.
   # Result of perl -ni -e '$b=m/include.*boost/; print "#ifndef Q_MOC_RUN\n" if $b; print $_; print "#endif\n" if $b;' **/*.{h,cpp}
   # https://bugreports.qt.io/browse/QTBUG-22829
-  patch do
-    url "https://gist.githubusercontent.com/jkseppan/836934647cca55eba855/raw/eff85dafc5a0fdc62859f106ffffac28eba38d93/scantailor-enhanced-20140214-moc-boost.patch"
-    sha1 "4d143ca7ba2018ef9ee683d1c2da09b3658b5c26"
+  stable do
+    patch do
+      url "https://gist.githubusercontent.com/jkseppan/ccf72d14f8b0efee6c7d/raw/dc97fbeb6b086a44c75b857a0f31e7a4f2adcdda/scantailor-0.9.11.1-moc-boost.patch"
+      sha1 "955227c27588db36e8198a9e55c536116c82044d"
+    end
+  end
+  devel do
+    patch do
+      url "https://gist.githubusercontent.com/jkseppan/836934647cca55eba855/raw/eff85dafc5a0fdc62859f106ffffac28eba38d93/scantailor-enhanced-20140214-moc-boost.patch"
+      sha1 "4d143ca7ba2018ef9ee683d1c2da09b3658b5c26"
+    end
   end
 
   # Changes some uses of boost::lambda::bind to C++11 lambdas.
