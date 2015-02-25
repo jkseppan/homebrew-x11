@@ -71,7 +71,7 @@ class Scantailor < Formula
   end
 
   def install
-    system "cmake", ".", "-DPNG_INCLUDE_DIR=#{MacOS::X11.include}", "-DCMAKE_CXX_FLAGS=-std=c++11", *std_cmake_args
+    system "cmake", ".", "-DPNG_INCLUDE_DIR=#{MacOS::X11.include}", "-DCMAKE_CXX_FLAGS=-std=c++11 -stdlib=libc++", *std_cmake_args
     system "make install"
   end
 end
